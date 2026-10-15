@@ -2,25 +2,19 @@ import React, { useState, useEffect, useRef } from 'react';
 import {
   Clock,
   CheckCircle2,
-  AlertCircle,
   FileText,
   Download,
   Send,
   Sparkles,
   Paperclip,
-  ChevronDown,
   ChevronRight,
   Info,
-  ExternalLink,
   X,
   RefreshCw,
   Eye,
-  BookOpen,
   Award,
   Trash2,
-  Database,
-  Terminal,
-  HelpCircle
+  Database
 } from 'lucide-react';
 
 // ==========================================
@@ -2914,17 +2908,6 @@ const MODULES_DATA: ModuleCategory[] = [
     ]
   }
 ];
-
-// Helper to look up scenario
-function getScenarioById(id: string): { module: ModuleCategory; scenario: ScenarioItem } | null {
-  for (const mod of MODULES_DATA) {
-    const item = mod.items.find(s => s.id === id);
-    if (item) {
-      return { module: mod, scenario: item };
-    }
-  }
-  return null;
-}
 
 function getRandomScenario(): { module: ModuleCategory; scenario: ScenarioItem } {
   const all: { module: ModuleCategory; scenario: ScenarioItem }[] = [];
