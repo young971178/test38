@@ -2,19 +2,25 @@ import React, { useState, useEffect, useRef } from 'react';
 import {
   Clock,
   CheckCircle2,
+  AlertCircle,
   FileText,
   Download,
   Send,
   Sparkles,
   Paperclip,
+  ChevronDown,
   ChevronRight,
   Info,
+  ExternalLink,
   X,
   RefreshCw,
   Eye,
+  BookOpen,
   Award,
   Trash2,
-  Database
+  Database,
+  Terminal,
+  HelpCircle
 } from 'lucide-react';
 
 // ==========================================
@@ -2909,6 +2915,17 @@ const MODULES_DATA: ModuleCategory[] = [
   }
 ];
 
+// Helper to look up scenario
+function getScenarioById(id: string): { module: ModuleCategory; scenario: ScenarioItem } | null {
+  for (const mod of MODULES_DATA) {
+    const item = mod.items.find(s => s.id === id);
+    if (item) {
+      return { module: mod, scenario: item };
+    }
+  }
+  return null;
+}
+
 function getRandomScenario(): { module: ModuleCategory; scenario: ScenarioItem } {
   const all: { module: ModuleCategory; scenario: ScenarioItem }[] = [];
   for (const mod of MODULES_DATA) {
@@ -3736,7 +3753,7 @@ export default function App() {
             {/* Bottom Button linking to requested URL */}
             <div className="w-full space-y-2">
               <a
-                href="https://test17-flax.vercel.app/"
+                href="https://test40-silk.vercel.app/"
                 target="_self"
                 rel="noopener noreferrer"
                 className="w-full block py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-sm shadow-lg shadow-blue-600/30 text-center transition-all active:scale-95 cursor-pointer"
@@ -3744,7 +3761,7 @@ export default function App() {
                 제출하기
               </a>
               <p className="text-[11px] text-slate-500 text-center">
-                클릭 시 최종 검증 포털 (https://test17-flax.vercel.app/) 로 이동합니다.
+                클릭 시 최종 검증 포털 (https://test40-silk.vercel.app/) 로 이동합니다.
               </p>
             </div>
           </div>
